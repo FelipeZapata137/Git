@@ -1,6 +1,6 @@
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
-import { getAnalytics } from "firebase/analytics";
+import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
   apiKey: "AIzaSyAAoFeATgKYfs4MZOFjGuKwbYI-WGV3HEk",
@@ -8,12 +8,11 @@ const firebaseConfig = {
   projectId: "clase-f281e",
   storageBucket: "clase-f281e.firebasestorage.app",
   messagingSenderId: "781603186079",
-  appId: "1:781603186079:web:0dc80a447987c09c3009aa",
-  measurementId: "G-F24NKJSMCK"
+  appId: "1:781603186079:web:0dc80a447987c09c3009aa"
 };
 
-const firebaseApp = initializeApp(firebaseConfig);
-const auth = getAuth(firebaseApp);
-const analytics = getAnalytics(firebaseApp);
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const db = getFirestore(app);
 
-export { auth, analytics };
+export { app, auth, db };
